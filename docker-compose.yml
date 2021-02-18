@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  valheim:
+    container_name: valheim-${SERVER_NAME}
+    image: palp/valheim_server
+    ports:
+      - "2456-2458:2456-2458/udp"
+    environment:
+      - SERVER_NAME=${SERVER_NAME}
+      - WORLD_NAME=${WORLD_NAME}
+      - SERVER_PASSWORD=${SERVER_PASSWORD}
+    volumes:
+      - ${DATA_DIR}:/home/steam/valheim_server
